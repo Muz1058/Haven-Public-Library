@@ -8,13 +8,13 @@ pages; nginx serves the generated files. There is no application JavaScript or b
 | Role | Page(s) | Branch | Image tag | Host port |
 | --- | --- | --- | --- | --- |
 | Team Lead: `muz1058` | `src/index.html` | `feature/index-page` | `v1-index` | 8081 |
-| Member 1 / CSS lead | `src/collections.html`, shared CSS | `feature/collections-page` | `v1-collections` | 8082 |
-| Member 2 | `src/membership.html`, `src/contact.html` | `feature/membership-contact-pages` | `v1-membership-contact` | 8083 |
-| Member 3 / evidence and QA | `src/services.html` | `feature/services-page` | `v1-services` | 8084 |
+| Member 1 / CSS lead: `aleena-coded` | `src/collections.html`, shared CSS | `feature/collections-page` | `v1-collections` | 8082 |
+| Member 2: `Code-fever1` | `src/membership.html`, `src/contact.html` | `feature/membership-contact-pages` | `v1-membership-contact` | 8083 |
+| Member 3 / evidence and QA: `Talha331-web` | `src/services.html` | `feature/services-page` | `v1-services` | 8084 |
 
 Team Lead Docker Hub: `silentaxiom`. Collaborators and reviewers: `Talha331-web`,
-`aleena-coded`, and `Code-fever1`. Their Member 1/2/3 role mapping and individual
-Docker Hub usernames still need confirmation.
+`aleena-coded`, and `Code-fever1`. Member assignments are confirmed above; their
+individual Docker Hub usernames still need confirmation.
 The work plan proposes four people for a five-person assignment: confirm this with
 the instructor and mark row 5 N/A in Tables 1 and 2 only after agreement.
 
@@ -84,15 +84,15 @@ Require conversation resolution and disallow force pushes/deletions on those
 protected branches. Check that protection is actually enforced for this repository.
 Set `develop` as the normal base for feature PRs.
 
-Create exactly these five issues and assign them after confirming usernames:
+Create exactly these five issues with the confirmed assignees below:
 
 | Issue title | Owner | Acceptance criteria |
 | --- | --- | --- |
 | `[Feature] Index Implementation` | Team Lead `muz1058` | Home page, shared navigation, responsive layout, successful build |
-| `[Feature] Collections Implementation` | Member 1 | Four categories, three featured books each, shared CSS base |
-| `[Feature] Membership Implementation` | Member 2 | Three plans, annual fees in PKR, borrowing/loan/late-return rules |
-| `[Feature] Contact Implementation` | Member 2 | Address, phone, email, static name/email/message form |
-| `[Feature] Services Implementation` | Member 3 | Services page, responsive layout and shared navigation |
+| `[Feature] Collections Implementation` | Member 1 `aleena-coded` | Four categories, three featured books each, shared CSS base |
+| `[Feature] Membership Implementation` | Member 2 `Code-fever1` | Three plans, annual fees in PKR, borrowing/loan/late-return rules |
+| `[Feature] Contact Implementation` | Member 2 `Code-fever1` | Address, phone, email, static name/email/message form |
+| `[Feature] Services Implementation` | Member 3 `Talha331-web` | Services page, responsive layout and shared navigation |
 
 Link each page PR to its issue. The home page and Dockerfile use separate branches.
 The earlier Member 1 CSS commits remain on local `feature/collections-page`; its
