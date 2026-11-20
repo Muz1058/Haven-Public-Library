@@ -448,3 +448,10 @@ input[type="radio"] { accent-color: var(--color-primary); }
 .home-book--clay { height: 10rem; background: #c47b60; }
 .home-book--green { height: 9rem; background: #749c85; }
 .home-book--cream { height: 7.5rem; background: var(--color-accent-soft); }
+
+.home-section-heading { max-width: 42rem; margin-bottom: var(--space-6); }
+.home-discover-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.home-discover-grid .card { display: flex; flex-direction: column; align-items: flex-start; }
+.home-discover-grid .badge { margin-bottom: var(--space-5); }
+.home-discover-grid h3 { font-size: 1.6rem; }
+.home-discover-grid a { margin-top: auto; padding-block: var(--space-2); font-weight: 600; }
