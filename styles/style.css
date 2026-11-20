@@ -455,3 +455,9 @@ input[type="radio"] { accent-color: var(--color-primary); }
 .home-discover-grid .badge { margin-bottom: var(--space-5); }
 .home-discover-grid h3 { font-size: 1.6rem; }
 .home-discover-grid a { margin-top: auto; padding-block: var(--space-2); font-weight: 600; }
+
+.home-contact { background: var(--color-accent-soft); }
+.home-contact__inner { display: flex; align-items: center; justify-content: space-between; gap: var(--space-6); }
+.home-contact__inner > div { max-width: 42rem; }
+.home-contact__inner p:last-child { margin-bottom: 0; }
+.home-contact .button { flex-shrink: 0; }
