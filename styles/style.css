@@ -461,3 +461,17 @@ input[type="radio"] { accent-color: var(--color-primary); }
 .home-contact__inner > div { max-width: 42rem; }
 .home-contact__inner p:last-child { margin-bottom: 0; }
 .home-contact .button { flex-shrink: 0; }
+
+@media (max-width: 768px) {
+  .home-hero__layout,
+  .home-discover-grid { grid-template-columns: 1fr; }
+  .home-hero__layout { gap: var(--space-7); }
+  .home-reading-note { max-width: 32rem; width: 100%; }
+  .home-contact__inner { flex-direction: column; align-items: flex-start; }
+}
+
+@media (max-width: 480px) {
+  .home-reading-note { padding: var(--space-5); }
+  .home-book-row { height: 11rem; }
+  .home-hero h1 { font-size: 2.4rem; }
+}
