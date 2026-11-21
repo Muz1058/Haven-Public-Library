@@ -7,32 +7,64 @@
   <link rel="stylesheet" href="../styles/style.css">
 </head>
 <body>
-  <!-- Temporary placeholder for the page owner to replace. -->
-  <a class="skip-link" href="#main-content">Skip to content</a>
-  <header class="site-header">
-    <div class="container site-header__inner">
-      <a class="site-brand" href="index.html">Readers' Haven<span>PUBLIC LIBRARY</span></a>
-      <nav aria-label="Main navigation">
-        <ul class="nav">
-          <li><a href="index.html">Home</a></li>
-          <li><a class="active" aria-current="page" href="collections.html">Collections</a></li>
-          <li><a href="membership.html">Membership</a></li>
-          <li><a href="services.html">Services</a></li>
-          <li><a href="contact.html">Contact</a></li>
+  <nav class="navbar">
+    <a class="brand" href="index.html">Readers' Haven</a>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a class="active" href="collections.html">Collections</a></li>
+      <li><a href="membership.html">Membership</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <main class="container">
+    <h1>Our Collections</h1>
+    <p class="page-intro">Explore thousands of titles across four main categories.</p>
+
+    <section class="grid">
+      <article class="card">
+        <span class="collection-tag">Fiction</span>
+        <h3>Fiction</h3>
+        <ul>
+          <li>The Kite Runner: Khaled Hosseini</li>
+          <li>Pride and Prejudice: Jane Austen</li>
+          <li>The Alchemist: Paulo Coelho</li>
         </ul>
-      </nav>
-    </div>
-  </header>
-  <main id="main-content" class="container section" tabindex="-1">
-    <h1>Collections</h1>
-    <p>This page is being prepared by our library team.</p>
-    <a class="button" href="index.html">Return to the library home page</a>
+      </article>
+
+      <article class="card">
+        <span class="collection-tag">Non-Fiction</span>
+        <h3>Non-Fiction</h3>
+        <ul>
+          <li>Sapiens: Yuval Noah Harari</li>
+          <li>Atomic Habits: James Clear</li>
+          <li>Wings of Fire: A. P. J. Abdul Kalam</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <span class="collection-tag">Children</span>
+        <h3>Children's Corner</h3>
+        <ul>
+          <li>Charlotte's Web: E. B. White</li>
+          <li>Matilda: Roald Dahl</li>
+          <li>The Gruffalo: Julia Donaldson</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <span class="collection-tag">Reference</span>
+        <h3>Reference</h3>
+        <ul>
+          <li>Oxford English Dictionary</li>
+          <li>Encyclopaedia Britannica</li>
+          <li>World Atlas</li>
+        </ul>
+      </article>
+    </section>
   </main>
-  <footer class="site-footer">
-    <div class="container site-footer__inner">
-      <p><strong>Readers' Haven Public Library</strong><br>A little curiosity. A whole world of books.</p>
-      <a href="contact.html">Get in touch</a>
-    </div>
-  </footer>
+
+  <footer class="footer">&copy; 2026 Readers' Haven Public Library</footer>
 </body>
 </html>
