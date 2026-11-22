@@ -8,11 +8,13 @@ pages; nginx serves the generated files. There is no application JavaScript or b
 | Role | Page(s) | Branch | Image tag | Host port |
 | --- | --- | --- | --- | --- |
 | Team Lead: `muz1058` | `src/index.html` | `feature/index-page` | `v1-index` | 8081 |
-| Member 1 / CSS lead | `src/collections.html`, shared CSS | `feature/collections-page` | `v1-collections` | 8082 |
-| Member 2 | `src/membership.html`, `src/contact.html` | `feature/membership-contact-pages` | `v1-membership-contact` | 8083 |
-| Member 3 / evidence and QA | `src/services.html` | `feature/services-page` | `v1-services` | 8084 |
+| Member 1 / CSS lead: `aleena-coded` | `src/collections.html`, shared CSS | `feature/collections-page` | `v1-collections` | 8082 |
+| Member 2: `Code-fever1` | `src/membership.html`, `src/contact.html` | `feature/membership-contact-pages` | `v1-membership-contact` | 8083 |
+| Member 3 / evidence and QA: `Talha331-web` | `src/services.html` | `feature/services-page` | `v1-services` | 8084 |
 
-Confirm the three teammates' GitHub usernames and each person's Docker Hub username.
+Team Lead Docker Hub: `silentaxiom`. Collaborators and reviewers: `Talha331-web`,
+`aleena-coded`, and `Code-fever1`. Member assignments are confirmed above; their
+individual Docker Hub usernames still need confirmation.
 The work plan proposes four people for a five-person assignment: confirm this with
 the instructor and mark row 5 N/A in Tables 1 and 2 only after agreement.
 
@@ -63,6 +65,12 @@ This checkout started with only `main`; local `develop` was created from it with
 the repository owner's approval. The baseline is committed on local `develop`.
 No remote changes are implied by these instructions.
 
+The first baseline commit is `18c3b1a`. The Dockerfile commit is `1764666` on
+`feature/dockerfile`. The home page has five separate implementation commits on
+`feature/index-page` (`73e9594`, `1258ac9`, `59265dc`, `3ef82ae`, `43eb401`).
+Use `git log --oneline develop..feature/index-page` and
+`git log --oneline develop..feature/dockerfile` to inspect the current lists.
+
 When ready to publish the reviewed baseline:
 
 ```powershell
@@ -70,21 +78,21 @@ git switch develop
 git push -u origin develop
 ```
 
-In GitHub Settings, invite the three collaborators. Protect `develop` with required
+In GitHub Settings, invite `Talha331-web`, `aleena-coded`, and `Code-fever1`. Protect `develop` with required
 pull requests and **2 approving reviews**, and `main` with **3 approving reviews**.
 Require conversation resolution and disallow force pushes/deletions on those
 protected branches. Check that protection is actually enforced for this repository.
 Set `develop` as the normal base for feature PRs.
 
-Create exactly these five issues and assign them after confirming usernames:
+Create exactly these five issues with the confirmed assignees below:
 
 | Issue title | Owner | Acceptance criteria |
 | --- | --- | --- |
 | `[Feature] Index Implementation` | Team Lead `muz1058` | Home page, shared navigation, responsive layout, successful build |
-| `[Feature] Collections Implementation` | Member 1 | Four categories, three featured books each, shared CSS base |
-| `[Feature] Membership Implementation` | Member 2 | Three plans, annual fees in PKR, borrowing/loan/late-return rules |
-| `[Feature] Contact Implementation` | Member 2 | Address, phone, email, static name/email/message form |
-| `[Feature] Services Implementation` | Member 3 | Services page, responsive layout and shared navigation |
+| `[Feature] Collections Implementation` | Member 1 `aleena-coded` | Four categories, three featured books each, shared CSS base |
+| `[Feature] Membership Implementation` | Member 2 `Code-fever1` | Three plans, annual fees in PKR, borrowing/loan/late-return rules |
+| `[Feature] Contact Implementation` | Member 2 `Code-fever1` | Address, phone, email, static name/email/message form |
+| `[Feature] Services Implementation` | Member 3 `Talha331-web` | Services page, responsive layout and shared navigation |
 
 Link each page PR to its issue. The home page and Dockerfile use separate branches.
 The earlier Member 1 CSS commits remain on local `feature/collections-page`; its
@@ -123,6 +131,18 @@ approvals. If a published feature branch needs another rebase, coordinate with
 reviewers and update that feature branch using `git push --force-with-lease`.
 Never force-push `develop` or `main`.
 
+For a local check before the Dockerfile PR is merged, the following reads the
+committed Dockerfile directly from its branch while building your current home-page
+files. It does not merge the branches or create a second Dockerfile:
+
+```powershell
+git switch feature/index-page
+git show feature/dockerfile:Dockerfile | docker image build --progress=plain -f - -t silentaxiom/readers-haven:v1-index .
+```
+
+Run it twice unchanged to inspect caching. Once the Dockerfile is merged and your
+branch is rebased, use the ordinary build commands in the next section.
+
 ## Individual Docker evidence (Tasks 4–6, 10–12)
 
 Start Docker Desktop with Linux containers. Use only Docker management commands;
@@ -152,11 +172,11 @@ docker container rm haven-muz1058-nginx
 ```
 
 Tasks 10–12, **after the Dockerfile PR is merged and your branch is rebased**:
-replace `YOUR_DOCKERHUB_USERNAME` with your actual lowercase Docker Hub username.
-Create a Public Docker Hub repository named `readers-haven`.
+The Team Lead image is `silentaxiom/readers-haven:v1-index`.
+Create a Public Docker Hub repository named `readers-haven` under `silentaxiom`.
 
 ```powershell
-$dockerHubUser = 'YOUR_DOCKERHUB_USERNAME'
+$dockerHubUser = 'silentaxiom'
 $imageTag = "${dockerHubUser}/readers-haven:v1-index"
 docker image build --progress=plain -t $imageTag .
 docker image build --progress=plain -t $imageTag .
@@ -209,7 +229,7 @@ Build the final image from the merged release on `main`:
 ```powershell
 git switch main
 git pull --ff-only origin main
-$dockerHubUser = 'YOUR_DOCKERHUB_USERNAME'
+$dockerHubUser = 'silentaxiom'
 $finalImage = "${dockerHubUser}/readers-haven-final:v2.0"
 docker image build -t $finalImage .
 docker login --username $dockerHubUser
@@ -257,6 +277,31 @@ The Team Lead compiles Tables 1 and 2 using verified names, IDs, emails, GitHub 
 Docker Hub identities, repository/PR/image links, and actual evidence. The original
 table templates and teammates' details are still needed; do not invent them.
 Member 3 supplies the 3–4 line teamwork/challenges note after the work is complete.
+
+## Local verification completed on 21 November 2026
+
+- Node.js `24.21.0` and npm `11.19.0`; used `npm.cmd` because PowerShell blocks
+  `npm.ps1`. No global execution-policy change was made.
+- `npm.cmd ci` and `npm.cmd run build` passed. The agent's sandbox initially blocked
+  SWC's user-cache access; the same build passed with access to the normal user cache.
+- All five generated HTML pages refer to the generated CSS. Source and built
+  navigation links, metadata, heading order and active-page markers were checked.
+- `dist/`, dependencies and caches are ignored and untracked; `ls -la dist` was run.
+- Browser device-emulation checks at 320, 390, 768 and 1440 pixels passed without
+  horizontal overflow. Navigation and cards stack at the required mobile widths.
+  Local preview captures are in ignored `.parcel-cache/verification/`; they do not
+  replace your own assignment screenshots.
+- nginx pull, HTTP 200, start/stop/restart, logs, inspect and removal checks passed.
+- `silentaxiom/readers-haven:v1-index` built twice using the Dockerfile branch as
+  stdin. The second build reported `CACHED` for `WORKDIR`, package-file copy,
+  `npm ci --include=dev`, source copy, styles copy, `npm run build`, and the final
+  `COPY --from=build` into nginx.
+- All five pages and their stylesheet returned HTTP 200 from the custom container
+  on port 8081. Node and build dependencies were absent from its runtime filesystem.
+  Assignment test containers were stopped and removed; the local image remains.
+- No Git pushes, Docker login/push, collaborator invitations, protection changes,
+  issue creation, PR creation or release operations were performed. Those steps
+  require the handoff workflow above. The four other pages remain placeholders.
 
 ## Technical references
 
