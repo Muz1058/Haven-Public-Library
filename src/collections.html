@@ -7,64 +7,95 @@
   <link rel="stylesheet" href="../styles/style.css">
 </head>
 <body>
-  <nav class="navbar">
-    <a class="brand" href="index.html">Readers' Haven</a>
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a class="active" href="collections.html">Collections</a></li>
-      <li><a href="membership.html">Membership</a></li>
-      <li><a href="services.html">Services</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
-  </nav>
+  <a class="skip-link" href="#main">Skip to main content</a>
 
-  <main class="container">
-    <h1>Our Collections</h1>
-    <p class="page-intro">Explore thousands of titles across four main categories.</p>
-
-    <section class="grid">
-      <article class="card">
-        <span class="collection-tag">Fiction</span>
-        <h3>Fiction</h3>
-        <ul>
-          <li>The Kite Runner: Khaled Hosseini</li>
-          <li>Pride and Prejudice: Jane Austen</li>
-          <li>The Alchemist: Paulo Coelho</li>
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a class="site-brand" href="index.html">Readers' Haven <span>PUBLIC LIBRARY</span></a>
+      <nav aria-label="Main navigation">
+        <ul class="nav">
+          <li><a href="index.html">Home</a></li>
+          <li><a class="active" href="collections.html" aria-current="page">Collections</a></li>
+          <li><a href="membership.html">Membership</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="contact.html">Contact</a></li>
         </ul>
-      </article>
+      </nav>
+    </div>
+  </header>
 
-      <article class="card">
-        <span class="collection-tag">Non-Fiction</span>
-        <h3>Non-Fiction</h3>
-        <ul>
-          <li>Sapiens: Yuval Noah Harari</li>
-          <li>Atomic Habits: James Clear</li>
-          <li>Wings of Fire: A. P. J. Abdul Kalam</li>
-        </ul>
-      </article>
+  <main id="main">
+    <section class="hero">
+      <div class="container">
+        <p class="eyebrow">Our collections</p>
+        <h1>Find your next read</h1>
+        <p>Explore thousands of titles across four main categories, each with featured books to start with.</p>
+      </div>
+    </section>
 
-      <article class="card">
-        <span class="collection-tag">Children</span>
-        <h3>Children's Corner</h3>
-        <ul>
-          <li>Charlotte's Web: E. B. White</li>
-          <li>Matilda: Roald Dahl</li>
-          <li>The Gruffalo: Julia Donaldson</li>
+    <section class="section">
+      <div class="container">
+        <ul class="collections-jump">
+          <li><a href="#fiction">Fiction</a></li>
+          <li><a href="#non-fiction">Non-Fiction</a></li>
+          <li><a href="#children">Children's Corner</a></li>
+          <li><a href="#reference">Reference</a></li>
         </ul>
-      </article>
 
-      <article class="card">
-        <span class="collection-tag">Reference</span>
-        <h3>Reference</h3>
-        <ul>
-          <li>Oxford English Dictionary</li>
-          <li>Encyclopaedia Britannica</li>
-          <li>World Atlas</li>
-        </ul>
-      </article>
+        <div class="grid collections-grid">
+          <article class="card collections-category" id="fiction">
+            <span class="badge">Fiction</span>
+            <h3>Fiction</h3>
+            <p class="collections-description">Novels and stories from around the world.</p>
+            <ul class="collections-book-list">
+              <li><span class="collections-title">The Kite Runner</span><span class="collections-author">Khaled Hosseini</span></li>
+              <li><span class="collections-title">Pride and Prejudice</span><span class="collections-author">Jane Austen</span></li>
+              <li><span class="collections-title">The Alchemist</span><span class="collections-author">Paulo Coelho</span></li>
+            </ul>
+          </article>
+
+          <article class="card collections-category" id="non-fiction">
+            <span class="badge">Non-Fiction</span>
+            <h3>Non-Fiction</h3>
+            <p class="collections-description">History, self-development, science and biography.</p>
+            <ul class="collections-book-list">
+              <li><span class="collections-title">Sapiens</span><span class="collections-author">Yuval Noah Harari</span></li>
+              <li><span class="collections-title">Atomic Habits</span><span class="collections-author">James Clear</span></li>
+              <li><span class="collections-title">Wings of Fire</span><span class="collections-author">A. P. J. Abdul Kalam</span></li>
+            </ul>
+          </article>
+
+          <article class="card collections-category" id="children">
+            <span class="badge">Children's Corner</span>
+            <h3>Children's Corner</h3>
+            <p class="collections-description">Picture books and stories for young readers.</p>
+            <ul class="collections-book-list">
+              <li><span class="collections-title">Charlotte's Web</span><span class="collections-author">E. B. White</span></li>
+              <li><span class="collections-title">Matilda</span><span class="collections-author">Roald Dahl</span></li>
+              <li><span class="collections-title">The Gruffalo</span><span class="collections-author">Julia Donaldson</span></li>
+            </ul>
+          </article>
+
+          <article class="card collections-category" id="reference">
+            <span class="badge">Reference</span>
+            <h3>Reference</h3>
+            <p class="collections-description">Dictionaries, encyclopaedias and atlases for use in the library.</p>
+            <ul class="collections-book-list">
+              <li><span class="collections-title">Oxford English Dictionary</span><span class="collections-author">Oxford University Press</span></li>
+              <li><span class="collections-title">Encyclopaedia Britannica</span><span class="collections-author">Britannica</span></li>
+              <li><span class="collections-title">World Atlas</span><span class="collections-author">National Geographic</span></li>
+            </ul>
+          </article>
+        </div>
+      </div>
     </section>
   </main>
 
-  <footer class="footer">&copy; 2026 Readers' Haven Public Library</footer>
+  <footer class="site-footer">
+    <div class="container site-footer__inner">
+      <p><strong>Readers' Haven Public Library</strong></p>
+      <p>&copy; 2026 Readers' Haven Public Library</p>
+    </div>
+  </footer>
 </body>
 </html>
