@@ -376,7 +376,10 @@ input[type="radio"] { accent-color: var(--color-primary); }
   padding: 0;
   list-style: none;
 }
-
+.collections-jump a:focus-visible {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 3px;
+}
 /* 8. Responsive design */
 @media (max-width: 768px) {
   .site-header__inner,
