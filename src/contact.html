@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact | Readers' Haven Public Library</title>
+  <link rel="stylesheet" href="../styles/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a class="site-brand" href="index.html">Readers' Haven<span>PUBLIC LIBRARY</span></a>
+      <nav aria-label="Main navigation">
+        <ul class="nav">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="collections.html">Collections</a></li>
+          <li><a href="membership.html">Membership</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a class="active" aria-current="page" href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <main id="main-content" class="container section" tabindex="-1">
+    <p class="eyebrow">Visit or write</p>
+    <h1>Contact</h1>
+    <p>The help desk can find a title, renew a card, or explain a late fee. Visit us, call, or email. The form on this page is only a layout sample for the static website.</p>
+
+    <div class="contact-layout">
+      <section class="card contact-details" aria-labelledby="library-details-heading">
+        <h2 id="library-details-heading">Library details</h2>
+        <dl class="contact-facts">
+          <div>
+            <dt>Address</dt>
+            <dd>
+              <address class="contact-address">
+                Readers' Haven Public Library<br>
+                14 Canal Bank Road<br>
+                Gulberg III, Lahore 54660<br>
+                Pakistan
+              </address>
+            </dd>
+          </div>
+          <div>
+            <dt>Phone</dt>
+            <dd><a href="tel:+924235712240">+92 42 3571 2240</a></dd>
+          </div>
+          <div>
+            <dt>Email</dt>
+            <dd><a href="mailto:desk@readershaven.library">desk@readershaven.library</a></dd>
+          </div>
+          <div>
+            <dt>Opening hours</dt>
+            <dd>Monday to Saturday, 9:00 AM to 9:00 PM. Sunday, 10:00 AM to 6:00 PM.</dd>
+          </div>
+        </dl>
+      </section>
+
+      <section class="card" aria-labelledby="contact-form-heading">
+        <h2 id="contact-form-heading">Sample message form</h2>
+        <p id="contact-form-note" class="contact-demo-note">This is a static demonstration form. It does not send a message, and the library does not receive or store anything typed here. To reach us, use the phone number or email above.</p>
+        <form class="contact-form" aria-describedby="contact-form-note" onsubmit="return false">
+          <div class="form-field">
+            <label for="contact-name">Name</label>
+            <input id="contact-name" name="name" type="text" autocomplete="name">
+          </div>
+          <div class="form-field">
+            <label for="contact-email">Email</label>
+            <input id="contact-email" name="email" type="email" autocomplete="email">
+          </div>
+          <div class="form-field">
+            <label for="contact-message">Message</label>
+            <textarea id="contact-message" name="message"></textarea>
+          </div>
+          <button class="button" type="button">Sample button (does not send)</button>
+        </form>
+      </section>
+    </div>
+  </main>
+  <footer class="site-footer">
+    <div class="container site-footer__inner">
+      <p><strong>Readers' Haven Public Library</strong><br>A little curiosity. A whole world of books.</p>
+      <a href="contact.html">Get in touch</a>
+    </div>
+  </footer>
+</body>
+</html>

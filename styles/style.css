@@ -1,0 +1,477 @@
+/* Shared styles: keep reusable rules in the sections below. Each member should
+   append their page-specific styles at the bottom under a named page section,
+   and prefix page-only classes (for example, .collections-book-list). */
+
+/* 1. Theme variables */
+:root {
+  color-scheme: light;
+  --color-primary: #173e38;
+  --color-primary-dark: #102f2b;
+  --color-background: #f7f3e9;
+  --color-surface: #fffdf7;
+  --color-text: #233a35;
+  --color-muted: #57635b;
+  --color-accent: #c29444;
+  --color-accent-soft: #f0e2c2;
+  --color-border: #d8dccf;
+  --font-body: "Segoe UI", Arial, sans-serif;
+  --font-heading: Georgia, "Times New Roman", serif;
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4.5rem;
+  --radius: 0.75rem;
+  --content-width: 72rem;
+}
+
+/* 2. Reset and base styles */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--color-background);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.65;
+  overflow-wrap: anywhere;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0 0 var(--space-4);
+  font-family: var(--font-heading);
+  font-weight: 400;
+  line-height: 1.2;
+  text-wrap: balance;
+}
+
+h1 { font-size: clamp(2.5rem, 6vw, 4.5rem); }
+h2 { font-size: clamp(1.8rem, 3vw, 2.5rem); }
+h3 { font-size: 1.25rem; }
+p { margin: 0 0 var(--space-4); }
+a { color: var(--color-primary); text-underline-offset: 0.2em; }
+a:hover { text-decoration-thickness: 0.15em; }
+img { display: block; max-width: 100%; height: auto; }
+button,
+input,
+select,
+textarea { font: inherit; }
+
+:focus-visible {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 4px;
+}
+
+::selection {
+  background: var(--color-accent-soft);
+  color: var(--color-primary-dark);
+}
+
+/* 3. Layout helpers */
+.container {
+  width: 100%;
+  max-width: var(--content-width);
+  margin-inline: auto;
+  padding-inline: var(--space-6);
+}
+
+.section { padding-block: var(--space-8); }
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 24rem), 1fr));
+  gap: var(--space-5);
+}
+
+/* 4. Header and navigation */
+.site-header {
+  background: var(--color-primary-dark);
+  color: var(--color-surface);
+  border-bottom: 3px solid var(--color-accent);
+}
+
+.site-header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-6);
+  padding-block: var(--space-5);
+}
+
+.site-brand {
+  color: inherit;
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  line-height: 1.3;
+  text-decoration: none;
+}
+
+.site-brand span {
+  display: block;
+  margin-top: var(--space-1);
+  color: var(--color-accent-soft);
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  letter-spacing: 0.1em;
+}
+
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nav a {
+  display: block;
+  padding: var(--space-2) var(--space-3);
+  border-bottom: 2px solid transparent;
+  color: inherit;
+  text-decoration: none;
+}
+
+.nav a:hover,
+.nav a.active {
+  border-bottom-color: var(--color-accent);
+  background: #24443d;
+}
+
+.nav a.active { font-weight: 700; }
+.site-header :focus-visible { outline-color: var(--color-accent-soft); }
+
+.skip-link {
+  position: absolute;
+  top: var(--space-4);
+  left: var(--space-4);
+  z-index: 10;
+  padding: var(--space-3) var(--space-4);
+  transform: translateY(-200%);
+  background: var(--color-surface);
+  color: var(--color-primary-dark);
+}
+
+.skip-link:focus { transform: translateY(0); }
+
+/* 5. Shared components: hero, cards, badges, buttons, tables and forms */
+.hero {
+  padding-block: var(--space-8);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.hero p { max-width: 40rem; }
+
+.eyebrow {
+  margin-bottom: var(--space-4);
+  color: var(--color-muted);
+  font-size: 0.875rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.card {
+  min-width: 0;
+  padding: var(--space-6);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  background: var(--color-surface);
+}
+
+.badge {
+  display: inline-block;
+  padding: var(--space-1) var(--space-3);
+  border-radius: 2rem;
+  background: var(--color-accent-soft);
+  color: var(--color-primary-dark);
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.75rem;
+  padding: var(--space-3) var(--space-5);
+  border: 1px solid var(--color-primary);
+  border-radius: var(--radius);
+  background: var(--color-primary);
+  color: var(--color-surface);
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.button:hover { background: var(--color-primary-dark); }
+.button:disabled { opacity: 0.6; cursor: not-allowed; }
+
+/* Wrap wide tables in .table-wrapper to retain horizontal access on phones. */
+.table-wrapper { max-width: 100%; overflow-x: auto; }
+.table { width: 100%; border-collapse: collapse; text-align: left; }
+.table caption { padding-block: var(--space-3); font-weight: 700; text-align: left; }
+.table th,
+.table td { padding: var(--space-3); border-bottom: 1px solid var(--color-border); }
+.table th { background: var(--color-accent-soft); }
+
+.form-field { margin-bottom: var(--space-5); }
+label,
+legend { font-weight: 600; }
+label { display: block; margin-bottom: var(--space-2); }
+fieldset { min-width: 0; padding: var(--space-5); border: 1px solid var(--color-border); }
+input:not([type="checkbox"]):not([type="radio"]):not([type="submit"]):not([type="button"]):not([type="reset"]):not([type="hidden"]),
+select,
+textarea {
+  width: 100%;
+  min-height: 2.75rem;
+  padding: var(--space-3);
+  border: 1px solid var(--color-muted);
+  border-radius: var(--radius);
+  background-color: var(--color-surface);
+  color: var(--color-text);
+}
+
+select {
+  appearance: none;
+  padding-right: 2.5rem;
+  background-image: linear-gradient(45deg, transparent 50%, var(--color-primary) 50%),
+    linear-gradient(135deg, var(--color-primary) 50%, transparent 50%);
+  background-position: calc(100% - 1.15rem) 50%, calc(100% - 0.8rem) 50%;
+  background-size: 0.35rem 0.35rem;
+  background-repeat: no-repeat;
+}
+
+textarea { min-height: 8rem; resize: vertical; }
+input[type="checkbox"],
+input[type="radio"] { accent-color: var(--color-primary); }
+.form-help { color: var(--color-muted); font-size: 0.875rem; }
+
+/* 6. Footer */
+.site-footer {
+  padding-block: var(--space-6);
+  border-top: 1px solid var(--color-border);
+  color: var(--color-muted);
+}
+
+.site-footer__inner {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.site-footer p { margin: 0; }
+.site-footer strong { color: var(--color-primary); }
+
+/* 7. Collections page styles */
+/* Category quick links */
+.collections-jump {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin: 0 0 var(--space-6);
+  padding: 0;
+  list-style: none;
+}
+
+.collections-jump a {
+  display: inline-block;
+  padding: var(--space-2) var(--space-4);
+  border: 1px solid var(--color-border);
+  border-radius: 2rem;
+  background: var(--color-surface);
+  color: var(--color-primary);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.collections-jump a:hover {
+  border-color: var(--color-accent);
+  background: var(--color-accent-soft);
+}
+
+/* Category cards: two columns on desktop */
+.collections-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.collections-category {
+  display: flex;
+  flex-direction: column;
+  border-top: 4px solid var(--color-accent);
+  scroll-margin-top: var(--space-6);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.collections-category:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(16, 47, 43, 0.1);
+}
+
+.collections-category .badge {
+  align-self: flex-start;
+  margin-bottom: var(--space-3);
+}
+
+.collections-description {
+  color: var(--color-muted);
+}
+
+/* Featured titles */
+.collections-book-list {
+  margin: auto 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.collections-book-list li {
+  padding-block: var(--space-3);
+  border-top: 1px solid var(--color-border);
+}
+
+.collections-title {
+  display: block;
+  color: var(--color-primary);
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+}
+
+.collections-author {
+  display: block;
+  color: var(--color-muted);
+  font-size: 0.875rem;
+}
+
+/* Collections page: responsive (satisfies the media query requirement) */
+@media (max-width: 768px) {
+  .collections-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .collections-jump a {
+    flex: 1 1 100%;
+    text-align: center;
+  }
+}
+.collections-jump {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin: var(--space-5) 0 var(--space-6);
+  padding: 0;
+  list-style: none;
+}
+.collections-jump a:focus-visible {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 3px;
+}
+/* 8. Responsive design */
+@media (max-width: 768px) {
+  .site-header__inner,
+  .site-footer__inner { flex-direction: column; align-items: flex-start; }
+  .site-header nav { width: 100%; }
+  .nav { flex-direction: column; gap: var(--space-1); }
+  .grid { grid-template-columns: 1fr; }
+  .section,
+  .hero { padding-block: var(--space-7); }
+}
+
+@media (max-width: 480px) {
+  .container { padding-inline: var(--space-4); }
+  .card { padding: var(--space-5); }
+  h1 { font-size: 2.4rem; }
+  .button { width: 100%; }
+  .table th,
+  .table td { padding: var(--space-2); }
+}
+
+/* Other members: append your named page-specific sections below this line. */
+
+/* Home page styles — Team Lead */
+.home-hero__layout {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  align-items: center;
+  gap: var(--space-8);
+}
+
+.home-hero h1 { max-width: 14ch; }
+.home-hero .button { margin-top: var(--space-3); }
+
+.home-reading-note {
+  padding: var(--space-6);
+  border-radius: var(--radius);
+  background: var(--color-primary);
+  color: var(--color-surface);
+}
+
+.home-reading-note .eyebrow { color: var(--color-accent-soft); }
+.home-reading-note p:last-child { margin-bottom: 0; }
+.home-reading-note__message { font-family: var(--font-heading); font-size: 2rem; line-height: 1.2; }
+
+.home-book-row {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: var(--space-2);
+  height: 12rem;
+  margin-bottom: var(--space-6);
+  padding-inline: var(--space-4);
+  border-bottom: 5px solid var(--color-accent-soft);
+}
+
+.home-book {
+  width: 2.5rem;
+  height: 8rem;
+  border-top: 10px double rgb(255 255 255 / 45%);
+  border-bottom: 10px double rgb(255 255 255 / 45%);
+  border-radius: 3px 6px 0 0;
+  box-shadow: inset 5px 0 rgb(0 0 0 / 12%);
+}
+
+.home-book--gold { height: 8.5rem; background: var(--color-accent); }
+.home-book--clay { height: 10rem; background: #c47b60; }
+.home-book--green { height: 9rem; background: #749c85; }
+.home-book--cream { height: 7.5rem; background: var(--color-accent-soft); }
+
+.home-section-heading { max-width: 42rem; margin-bottom: var(--space-6); }
+.home-discover-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.home-discover-grid .card { display: flex; flex-direction: column; align-items: flex-start; }
+.home-discover-grid .badge { margin-bottom: var(--space-5); }
+.home-discover-grid h3 { font-size: 1.6rem; }
+.home-discover-grid a { margin-top: auto; padding-block: var(--space-2); font-weight: 600; }
+
+.home-contact { background: var(--color-accent-soft); }
+.home-contact__inner { display: flex; align-items: center; justify-content: space-between; gap: var(--space-6); }
+.home-contact__inner > div { max-width: 42rem; }
+.home-contact__inner p:last-child { margin-bottom: 0; }
+.home-contact .button { flex-shrink: 0; }
+
+@media (max-width: 768px) {
+  .home-hero__layout,
+  .home-discover-grid { grid-template-columns: 1fr; }
+  .home-hero__layout { gap: var(--space-7); }
+  .home-reading-note { max-width: 32rem; width: 100%; }
+  .home-contact__inner { flex-direction: column; align-items: flex-start; }
+}
+
+@media (max-width: 480px) {
+  .home-reading-note { padding: var(--space-5); }
+  .home-book-row { height: 11rem; }
+  .home-hero h1 { font-size: 2.4rem; }
+}
