@@ -277,8 +277,109 @@ input[type="radio"] { accent-color: var(--color-primary); }
 .site-footer strong { color: var(--color-primary); }
 
 /* 7. Collections page styles */
-/* Collections-only selectors are added here. */
+/* Category quick links */
+.collections-jump {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin: 0 0 var(--space-6);
+  padding: 0;
+  list-style: none;
+}
 
+.collections-jump a {
+  display: inline-block;
+  padding: var(--space-2) var(--space-4);
+  border: 1px solid var(--color-border);
+  border-radius: 2rem;
+  background: var(--color-surface);
+  color: var(--color-primary);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.collections-jump a:hover {
+  border-color: var(--color-accent);
+  background: var(--color-accent-soft);
+}
+
+/* Category cards: two columns on desktop */
+.collections-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.collections-category {
+  display: flex;
+  flex-direction: column;
+  border-top: 4px solid var(--color-accent);
+  scroll-margin-top: var(--space-6);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.collections-category:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(16, 47, 43, 0.1);
+}
+
+.collections-category .badge {
+  align-self: flex-start;
+  margin-bottom: var(--space-3);
+}
+
+.collections-description {
+  color: var(--color-muted);
+}
+
+/* Featured titles */
+.collections-book-list {
+  margin: auto 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.collections-book-list li {
+  padding-block: var(--space-3);
+  border-top: 1px solid var(--color-border);
+}
+
+.collections-title {
+  display: block;
+  color: var(--color-primary);
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+}
+
+.collections-author {
+  display: block;
+  color: var(--color-muted);
+  font-size: 0.875rem;
+}
+
+/* Collections page: responsive (satisfies the media query requirement) */
+@media (max-width: 768px) {
+  .collections-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .collections-jump a {
+    flex: 1 1 100%;
+    text-align: center;
+  }
+}
+.collections-jump {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin: var(--space-5) 0 var(--space-6);
+  padding: 0;
+  list-style: none;
+}
+.collections-jump a:focus-visible {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 3px;
+}
 /* 8. Responsive design */
 @media (max-width: 768px) {
   .site-header__inner,
